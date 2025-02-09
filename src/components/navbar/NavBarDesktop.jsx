@@ -11,6 +11,7 @@ const logo = (
         </Link>
     </div>
 );
+
 const NavBarDesktop = () => {
     return (
         <nav className='navDesk'>
