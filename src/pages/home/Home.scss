@@ -11,7 +11,7 @@ main {
   overflow: hidden;
 }
 
-.background {
+.home-page {
   background-image: var(--bg-image);
   background-size: cover;
   background-position: center;
@@ -34,7 +34,7 @@ main {
     --bg-image: #{$bg-tablet};
   }
 
-  .background {
+  .home-page {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -56,7 +56,7 @@ main {
     --bg-image: #{$bg-desktop};
   }
 
-  .background {
+  .home-page {
     display: flex;
     justify-content: flex-end;
     align-items: center;

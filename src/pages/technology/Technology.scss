@@ -1,0 +1,24 @@
+$bg-mobile-technology: url('../../assets/technology/background-technology-mobile.jpg');
+$bg-tablet-technology: url('../../assets/technology/background-technology-tablet.jpg');
+$bg-desktop-technology: url('../../assets/technology/background-technology-desktop.jpg');
+
+
+:root {
+    --bg-image-technology: #{$bg-mobile-technology};
+  }
+
+.technology-page{
+    background-image:var(--bg-image-technology);
+} 
+
+@media (min-width: 768px) {
+    :root {
+      --bg-image-technology: #{$bg-tablet-technology};
+    }
+}
+
+@media (min-width: 1024px) {
+    :root {
+      --bg-image-technology: #{$bg-desktop-technology};
+    }
+}

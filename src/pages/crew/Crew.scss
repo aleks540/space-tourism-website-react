@@ -1,0 +1,24 @@
+$bg-mobile-crew: url('../../assets/crew/background-crew-mobile.jpg');
+$bg-tablet-crew: url('../../assets/crew/background-crew-tablet.jpg');
+$bg-desktop-crew: url('../../assets/crew/background-crew-desktop.jpg');
+
+
+:root {
+    --bg-image-crew: #{$bg-mobile-crew};
+  }
+
+.crew-page{
+    background-image:var(--bg-image-crew);
+} 
+
+@media (min-width: 768px) {
+    :root {
+      --bg-image-crew: #{$bg-tablet-crew};
+    }
+}
+
+@media (min-width: 1024px) {
+    :root {
+      --bg-image-crew: #{$bg-desktop-crew};
+    }
+}

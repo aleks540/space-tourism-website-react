@@ -5,7 +5,7 @@ import BtnExplore from '../../components/buttons/BtnExplore';
 
 const Home = () => {
   return (
-    <main className="background">
+    <main className="home-page">
       <section className="hero">
         <div className="left">
           <div className="text-preset-5">

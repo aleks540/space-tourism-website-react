@@ -1,0 +1,24 @@
+$bg-mobile-destination: url('../../assets/destination/background-destination-mobile.jpg');
+$bg-tablet-destination: url('../../assets/destination/background-destination-tablet.jpg');
+$bg-desktop-destination: url('../../assets/destination/background-destination-desktop.jpg');
+
+
+:root {
+    --bg-image-destination: #{$bg-mobile-destination};
+  }
+
+.destination-page{
+    background-image:var(--bg-image-destination);
+} 
+
+@media (min-width: 768px) {
+    :root {
+      --bg-image-destination: #{$bg-tablet-destination};
+    }
+}
+
+@media (min-width: 1024px) {
+    :root {
+      --bg-image-destination: #{$bg-desktop-destination};
+    }
+}
