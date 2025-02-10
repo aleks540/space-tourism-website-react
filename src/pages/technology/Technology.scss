@@ -9,6 +9,12 @@ $bg-desktop-technology: url('../../assets/technology/background-technology-deskt
 
 .technology-page{
     background-image:var(--bg-image-technology);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 } 
 
 @media (min-width: 768px) {

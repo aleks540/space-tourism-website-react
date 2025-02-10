@@ -103,10 +103,10 @@
 @media (min-width: 768px) {
 
     //algemeine Regeln ab tablet view
-    nav {
+    /*  nav {
         padding: 0 var(--space400);
         align-content: center;
-        /* height: 96px; */
+         height: 96px; 
 
 
         ul {
@@ -132,7 +132,7 @@
         .linkHover {
             height: 96px;
         }
-    }
+    } */
 
 
 
@@ -144,6 +144,42 @@
     .navLinks {
         background-color: rgba(255, 255, 255, 0.05);
         backdrop-filter: blur(10px);
+        padding: 0 var(--space400);
+        align-content: center;
+        max-height: 96px;
+
+        ul {
+            display: flex;
+            list-style: none;
+            flex-direction: row;
+            gap: var(--space600);
+            margin: 0;
+
+            li {
+                display: flex;
+                align-items: center;
+
+
+
+                a {
+                    text-decoration: none;
+                    color: #fff;
+                    display: flex;
+                    gap: var(--space150);
+                    height: 96px;
+                    align-items: center;
+
+
+                }
+
+            }
+
+            li:hover {
+                border-bottom: 3px solid red;
+
+            }
+
+        }
     }
 
     .navDesk {
@@ -190,10 +226,19 @@
         z-index: 10;
     }
 
-    nav {
+    .navLink {
         padding: 0 var(--space800);
 
+        ul {
+            li {
+                a {}
+            }
+        }
 
+    }
+
+    .navLink:hover {
+        color: red;
     }
 
     .active {
@@ -205,9 +250,10 @@
         content: "";
         position: absolute;
         left: 0;
-        bottom: -47px;
+        bottom: 0px;
         width: 100%;
         height: 3px;
         background-color: var(--white);
+
     }
 }

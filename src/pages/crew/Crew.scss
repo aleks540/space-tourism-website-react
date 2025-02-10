@@ -9,6 +9,12 @@ $bg-desktop-crew: url('../../assets/crew/background-crew-desktop.jpg');
 
 .crew-page{
     background-image:var(--bg-image-crew);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 } 
 
 @media (min-width: 768px) {

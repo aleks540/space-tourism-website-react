@@ -2,23 +2,101 @@ $bg-mobile-destination: url('../../assets/destination/background-destination-mob
 $bg-tablet-destination: url('../../assets/destination/background-destination-tablet.jpg');
 $bg-desktop-destination: url('../../assets/destination/background-destination-desktop.jpg');
 
+@keyframes planetRotation {
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 :root {
-    --bg-image-destination: #{$bg-mobile-destination};
-  }
+  --bg-image-destination: #{$bg-mobile-destination};
+}
 
-.destination-page{
-    background-image:var(--bg-image-destination);
-} 
+main {
+  overflow: clip;
+
+}
+
+.destination-page {
+  background-image: var(--bg-image-destination);
+  background-size: cover;
+  background-position: center;
+
+  margin: 0;
+
+}
 
 @media (min-width: 768px) {
-    :root {
-      --bg-image-destination: #{$bg-tablet-destination};
-    }
+  :root {
+    --bg-image-destination: #{$bg-tablet-destination};
+  }
 }
 
 @media (min-width: 1024px) {
-    :root {
-      --bg-image-destination: #{$bg-desktop-destination};
+  :root {
+    --bg-image-destination: #{$bg-desktop-destination};
+  }
+
+  .destination-page {
+    display: flex;
+
+    .paddingTop {
+      margin: auto auto;
+      ;
+
+      .pageTitle {
+        padding: 2rem 0;
+        max-width: 1024px;
+
+        margin: 0 auto;
+      }
+
+      .destination-container {
+
+
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1024px;
+        gap: var(--space1000);
+        padding: 5rem;
+
+        .image-destination {
+          animation: planetRotation 150s infinite linear;
+         
+        }
+
+        .explanation-destination {
+          .description {
+            max-width: 445px;
+          }
+
+          .destination_statistik {
+            display: flex;
+            padding-top: 2rem;
+
+            .distance_Cont {
+              display: flex;
+              flex-direction: column;
+              gap: 25px;
+              width: 50%;
+            }
+
+            .travelTime_Cont {
+              display: flex;
+              flex-direction: column;
+              gap: 25px;
+              width: 50%;
+            }
+          }
+        }
+
+      }
     }
+  }
+
+
 }
