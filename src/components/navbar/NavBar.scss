@@ -1,5 +1,28 @@
-//Mobile View
+// Variablen
+$blur-bg: rgba(255, 255, 255, 0.05);
+$transition-speed: 0.3s ease-in-out;
+$nav-height: 96px;
 
+// Mixins
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin full-screen {
+    width: 100%;
+    height: 100vh;
+}
+
+@mixin base-link {
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+// Mobile View
 .navDesk {
     display: none;
 }
@@ -8,18 +31,13 @@
     width: 100%;
 
     .navMobTop {
-        display: flex;
-        justify-content: space-between;
+        @include flex-between;
         padding: var(--space300);
-        align-items: center;
     }
 
-    .logo {
-
-        img {
-            width: 40px;
-            height: 40px;
-        }
+    .logo img {
+        width: 40px;
+        height: 40px;
     }
 
     .hamburgerIcon {
@@ -29,59 +47,46 @@
     }
 
     .nav {
-        background-color: rgba(255, 255, 255, 0.05);
+        background-color: $blur-bg;
         backdrop-filter: blur(10px);
         position: absolute;
         top: 0;
         right: 0;
-
-        height: 100vh;
-        transition: all 0.3s ease-in-out;
-        z-index: 999;
+        @include full-screen;
         padding-left: var(--space400);
         display: flex;
         flex-direction: column;
         gap: var(--space600);
-        min-height: 100vh;
         overflow: hidden;
-
-        img {
-            width: 20px;
-            height: 20px;
-        }
+        transition: all $transition-speed;
+        z-index: 999;
 
         .closeIcon {
             cursor: pointer;
             padding: var(--space300);
             align-self: flex-end;
-
         }
 
         .navLinks {
             width: 222px;
-            margin: 0;
-            padding: 0;
 
             ul {
                 list-style: none;
-                padding: 0;
                 margin: 0;
+                padding: 0;
                 width: 100%;
-            }
 
-            li a {
-                text-decoration: none;
-                color: #fff;
-                display: block;
-                /* Ganze Breite */
-                padding: 10px 0;
+                li a {
+                    @include base-link;
+                    display: block;
+                    padding: 10px 0;
+                }
             }
         }
     }
 
     .show-nav {
         transform: translateX(0);
-
     }
 
     .hide-nav {
@@ -92,61 +97,22 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100vh;
-
+        @include full-screen;
     }
-
 }
 
-/*  Tablet View */
+// Tablet View
 @media (min-width: 768px) {
-
-    //algemeine Regeln ab tablet view
-    /*  nav {
-        padding: 0 var(--space400);
-        align-content: center;
-         height: 96px; 
-
-
-        ul {
-            display: flex;
-            list-style: none;
-            flex-direction: row;
-            gap: var(--space600);
-
-
-            li {
-
-                a {
-                    text-decoration: none;
-                    color: #fff;
-                    display: flex;
-                    gap: var(--space150);
-
-                }
-            }
-
-        }
-
-        .linkHover {
-            height: 96px;
-        }
-    } */
-
-
-
-    //tablet view eigenschaften
     .navMob {
         display: none;
     }
 
     .navLinks {
-        background-color: rgba(255, 255, 255, 0.05);
+        background-color: $blur-bg;
         backdrop-filter: blur(10px);
         padding: 0 var(--space400);
         align-content: center;
-        max-height: 96px;
+        max-height: $nav-height;
 
         ul {
             display: flex;
@@ -154,40 +120,49 @@
             flex-direction: row;
             gap: var(--space600);
             margin: 0;
-
+            
             li {
+                position: relative;
                 display: flex;
                 align-items: center;
+                cursor: pointer;
 
-
-
-                a {
-                    text-decoration: none;
-                    color: #fff;
-                    display: flex;
-                    gap: var(--space150);
-                    height: 96px;
-                    align-items: center;
-
-
+                .underline {
+                    content: "";
+                    position: absolute;
+                    bottom: -3px;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;  
+                    background-color: white;
+                    transform: scaleX(0);
+                    transform-origin: bottom right;
+                    transition: transform 0.3s ease-in-out;
                 }
-
+                &:hover .underline {
+                    transform: scaleX(1);
+                    transform-origin: bottom left;
+                }
+    
+                &.active .underline {
+                    transform: scaleX(1);
+                    background-color: white;
+                }
+                a {
+                    @include base-link;
+                    gap: var(--space150);
+                    height: $nav-height;
+                }
             }
 
-            li:hover {
-                border-bottom: 3px solid red;
-
-            }
-
+          
         }
     }
 
     .navDesk {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-height: 96px;
-        padding: 0;
+        @include flex-between;
+        max-height: $nav-height;
+        padding: 0 var(--space500);
     }
 
     .logo {
@@ -195,18 +170,10 @@
         width: 48px;
         height: 48px;
     }
-
-
-    nav {
-        padding: 0 var(--space500);
-
-
-    }
 }
 
-/* Desktop View */
+// Desktop View
 @media (min-width: 1024px) {
-
     .navDesk {
         margin-top: var(--space500);
         padding: 0;
@@ -228,32 +195,19 @@
 
     .navLink {
         padding: 0 var(--space800);
-
-        ul {
-            li {
-                a {}
-            }
-        }
-
-    }
-
-    .navLink:hover {
-        color: red;
     }
 
     .active {
         position: relative;
 
-    }
-
-    .active::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0px;
-        width: 100%;
-        height: 3px;
-        background-color: var(--white);
-
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 3px;
+          
+        }
     }
 }

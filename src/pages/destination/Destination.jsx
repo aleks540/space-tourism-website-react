@@ -3,6 +3,7 @@ import "./Destination.scss";
 
 //images
 import Moon from "../../assets/destination/image-moon.png"
+import PlanetNavBar from '../../components/planetNavBar/PlanetNavBar';
 
 const Destination = () => {
     return (
@@ -18,9 +19,7 @@ const Destination = () => {
 
                     </div>
                     <div className="explanation-destination">
-                        <nav className="planetNavigation">
-
-                        </nav>
+                       <PlanetNavBar/>
                         <div className='destination_text'>
                             <div className="planet text-preset-2">MOON
                             </div>

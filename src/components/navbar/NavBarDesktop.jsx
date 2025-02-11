@@ -13,11 +13,12 @@ const logo = (
 );
 
 const NavBarDesktop = () => {
+    const hideMenu = () => {};
     return (
         <nav className='navDesk'>
             {logo}
             <div class="horizontalLine"></div>
-            <NavLinks />
+            <NavLinks hideMenu={hideMenu}/>
         </nav>
     )
 }

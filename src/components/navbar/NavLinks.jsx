@@ -1,39 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import "./NavBar.scss";
 
-const activeLink = ({ isActive }) => (isActive ? "active" : "");
-
-
 
 const NavLinks = ({hideMenu}) => {
+    const [activeLink, setActiveLink] = useState("/");
+    const links = [
+        { id: "00", name: "HOME", path: "/" },
+        { id: "01", name: "DESTINATION", path: "/destination" },
+        { id: "02", name: "CREW", path: "/crew" },
+        { id: "03", name: "TECHNOLOGY", path: "/technology" },
+    ];
+
+
     return (
-        <div className="navLinks" >
-            <ul  >
-                <li onClick={hideMenu}  className={activeLink}>
-                    <NavLink to="/" >
-                    <span className="textBold text-preset-8">00</span> <span className="text-preset-8">HOME</span>
- 
+        <div className="navLinks">
+        <ul>
+            {links.map(({ id, name, path }) => (
+                <li 
+                    key={id}
+                    className={activeLink === path ? "active" : ""}
+                    onClick={() => { 
+                        setActiveLink(path);
+                        hideMenu();
+                    }}
+                >
+                    <NavLink to={path}>
+                        <span className="textBold text-preset-8">{id}</span>
+                        <span className="text-preset-8">{name}</span>
                     </NavLink>
+                    <span className="underline"></span> 
                 </li>
-                <li onClick={hideMenu} className={activeLink}>
-                    <NavLink to="/destination" >
-                    <span className="textBold text-preset-8">01</span> <span className="text-preset-8">DESTINATION</span>                
-                    </NavLink>
-                </li>
-                <li onClick={hideMenu} className={activeLink}>
-                    <NavLink to="/crew" >
-                    <span className="textBold text-preset-8">02</span> <span className="text-preset-8">CREW</span>                         
-                    </NavLink>
-                </li>
-                <li onClick={hideMenu} className={activeLink}>
-                    <NavLink to="/technology" >
-                    <span className="textBold text-preset-8">03</span> <span className="text-preset-8">TECHNOLOGY</span>    
-               
-                    </NavLink>
-                </li>
-            </ul>
-        </div>
+            ))}
+        </ul>
+    </div>
     )
 }
 
