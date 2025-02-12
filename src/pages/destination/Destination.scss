@@ -9,6 +9,7 @@ $bg-desktop-destination: url('../../assets/destination/background-destination-de
   }
 }
 
+
 :root {
   --bg-image-destination: #{$bg-mobile-destination};
 }
@@ -66,10 +67,24 @@ main {
 
         .image-destination {
           animation: planetRotation 150s infinite linear;
-         
+
         }
 
         .explanation-destination {
+
+          .destination_text,
+          .destination_statistik {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+          }
+
+          .destination_text.show,
+          .destination_statistik.show {
+            opacity: 1;
+            transform: translateY(0);
+          }
+
           .description {
             max-width: 445px;
           }
