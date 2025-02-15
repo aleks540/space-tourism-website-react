@@ -48,7 +48,7 @@ const Destination = () => {
         <main className="destination-page">
             <div className="paddingTop">
 
-                <div className="pageTitle text-preset-5"><span className='textBold'>01 </span>PICK YOUR DESTINATION</div>
+                <div className="pageTitleDestination text-preset-5"><span className='textBold'>01 </span>PICK YOUR DESTINATION</div>
                 <section className="destination-container">
 
 
