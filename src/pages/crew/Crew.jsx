@@ -1,9 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./Crew.scss";
-import crewHurley from "../../assets/crew/image-douglas-hurley.png";
 
+//images
+import crewHurley from "../../assets/crew/image-douglas-hurley.png";
+import crewAnsari from "../../assets/crew/image-anousheh-ansari.png";
+import crewShuttleworth from "../../assets/crew/image-mark-shuttleworth.png";
+import crewGlover from "../../assets/crew/image-victor-glover.png";
+
+//components
+import CrewPagination from '../../components/crewPagination/CrewPagination';
+
+//data
+import crewData from "../../data/data.json"
 
 const Crew = () => {
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const currentCrewMember = crewData.crew[currentIndex];
+
+    const imageMap = {
+        "Douglas Hurley": crewHurley,
+        "Anousheh Ansari": crewAnsari,
+        "Mark Shuttleworth": crewShuttleworth,
+        "Victor Glover": crewGlover
+    };
+
     return (
         <main className="crew-page">
             <section className="crew-container">
@@ -14,30 +35,30 @@ const Crew = () => {
                     <div className="left-crew">
                         <div className="explanation">
                             <div className="explanationText">
-                                <div className="rankCrew text-preset-4">Commander </div>
-                                <div className="nameCrew text-preset-3">Douglas Hurley</div>
-                                <div className="descriptionCrew text-preset-9">Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2.</div>
+                                <div className="rankCrew text-preset-4">{currentCrewMember.role} </div>
+                                <div className="nameCrew text-preset-3">{currentCrewMember.name}</div>
+                                <div className="descriptionCrew text-preset-9">{currentCrewMember.bio}</div>
                             </div>
 
                             <div className="pagination">
-                                <ul>
-                                   <li></li>
-                                   <li></li>
-                                   <li></li>
-                                   <li></li>
-                                </ul>
+
+                                <CrewPagination
+                                    currentIndex={currentIndex}
+                                    setCurrentIndex={setCurrentIndex}
+                                    crewLength={crewData.crew.length}
+                                />
                             </div>
                         </div>
                     </div>
                     <div className="right-crew">
                         <div className="image-crwe">
                             <img
-                                className='crew_CrewImgPlaceholder'
-                                src={crewHurley}
-                                alt="Douglas Hurley"
+                                className={currentCrewMember.images.png}
+                                src={imageMap[currentCrewMember.name]}
+                                alt={currentCrewMember.name}
                             />
                         </div>
-
+                       
                     </div>
                 </div>
             </section>
