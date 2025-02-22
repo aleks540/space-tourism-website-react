@@ -1,22 +1,14 @@
-import React from 'react'
+import React from 'react';
+import "./CrewPagination.scss"
 
 const CrewPagination = ({ currentIndex, setCurrentIndex, crewLength}) => {
     return (
-       /*  <div>
-            <ul>
-                <li>
-                    <button></button>
-                </li>
-                <li><button></button></li>
-                <li><button></button></li>
-                <li><button></button></li>
-            </ul>
-        </div> */
+       
         <div className="pagination">
         {Array.from({ length: crewLength }).map((_, index) => (
-          <button
+          <button 
             key={index}
-            className={index === currentIndex ? "active" : ""}
+            className={index === currentIndex ? "btn_crewPageniation activeCrewPagination" : "btn_crewPageniation"}
             onClick={() => setCurrentIndex(index)}
           />
         ))}

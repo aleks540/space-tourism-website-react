@@ -33,21 +33,21 @@ const Crew = () => {
 
                 <div className="contentCrew">
                     <div className="left-crew">
-                        <div className="explanation">
+                       
                             <div className="explanationText">
                                 <div className="rankCrew text-preset-4">{currentCrewMember.role} </div>
                                 <div className="nameCrew text-preset-3">{currentCrewMember.name}</div>
                                 <div className="descriptionCrew text-preset-9">{currentCrewMember.bio}</div>
                             </div>
+                      
+                        <div className="pagination">
 
-                            <div className="pagination">
+                            <CrewPagination
+                                currentIndex={currentIndex}
+                                setCurrentIndex={setCurrentIndex}
+                                crewLength={crewData.crew.length}
+                            />
 
-                                <CrewPagination
-                                    currentIndex={currentIndex}
-                                    setCurrentIndex={setCurrentIndex}
-                                    crewLength={crewData.crew.length}
-                                />
-                            </div>
                         </div>
                     </div>
                     <div className="right-crew">
@@ -58,7 +58,7 @@ const Crew = () => {
                                 alt={currentCrewMember.name}
                             />
                         </div>
-                       
+
                     </div>
                 </div>
             </section>
