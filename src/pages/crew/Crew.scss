@@ -15,6 +15,7 @@ $bg-desktop-crew: url('../../assets/crew/background-crew-desktop.jpg');
   overflow-x: hidden;
   margin: 0;
   padding: 0;
+  
 }
 
 @media (min-width: 768px) {
@@ -30,13 +31,10 @@ $bg-desktop-crew: url('../../assets/crew/background-crew-desktop.jpg');
 
   .crew-container {
     padding: 2rem 5rem;
-    //max-width: 1024px;
+    max-width: 1440px;
     display: flex;
-    border: 2px solid red;
     margin: 6rem auto 0 auto;
     flex-direction: column;
-
-
   }
 
 
@@ -48,7 +46,6 @@ $bg-desktop-crew: url('../../assets/crew/background-crew-desktop.jpg');
   .contentCrew {
     display: flex;
     gap: var(--space400);
-
     align-items: center;
   }
 
@@ -56,29 +53,21 @@ $bg-desktop-crew: url('../../assets/crew/background-crew-desktop.jpg');
     display: flex;
     width: 50%;
     height: 60vh;
+    min-height: 400px;
     justify-content: space-between;
 
     // align-items: center;
     flex-direction: column;
-    border: 2px solid blue;
   }
 
   .explanationText {
      display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 2rem;
-    border: 2px solid orangered;
+    gap: 2rem;   
     margin: auto 0; 
+    min-height: 200px;
   }
-
-  .pagination ul {
-
-    /*  display: flex;
-    flex-direction: row; */
-
-  }
-
 
   .right-crew {
     display: flex;
@@ -86,8 +75,6 @@ $bg-desktop-crew: url('../../assets/crew/background-crew-desktop.jpg');
     height: 100%;
     justify-content: center;
     align-items: center;
-
-
 
     .image-crwe {
       display: flex;
@@ -97,6 +84,8 @@ $bg-desktop-crew: url('../../assets/crew/background-crew-desktop.jpg');
         width: 80%;
         mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
         -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+        max-height: 600px; 
+        object-fit: contain;
       }
     }
   }

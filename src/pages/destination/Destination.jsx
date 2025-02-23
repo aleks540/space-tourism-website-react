@@ -46,45 +46,48 @@ const Destination = () => {
 
     return (
         <main className="destination-page">
-            <div className="paddingTop">
+            {/*  <div className="paddingTop"> */}
+
+            <section className="destination-container">
 
                 <div className="pageTitleDestination text-preset-5"><span className='textBold'>01 </span>PICK YOUR DESTINATION</div>
-                <section className="destination-container">
-
-
-                    <div className="image-destination">
-                        <img
-                            className='destination_planetImgPlaceholder'
-                            src={imageMap[selectedPlanet.name]}
-                            alt={selectedPlanet.name}
-                        />
-                    </div>
-
-                    <div className="explanation-destination">
-
-                        <PlanetNavBar onSelectPlanet={handleSelectPlanet} activePlanet={activePlanet} />
-
-                        <div className={`destination_text ${isVisible ? "show" : ""}`}>
-                            <div className="planet text-preset-2">{selectedPlanet.name.toUpperCase()}
-                            </div>
-                            <p className="description text-preset-9"> {selectedPlanet.description}</p>
-
+                <div className="contentDestination">
+                    <div className="left-destination">
+                        <div className="image-destination">
+                            <img
+                                className='destination_planetImgPlaceholder'
+                                src={imageMap[selectedPlanet.name]}
+                                alt={selectedPlanet.name}
+                            />
                         </div>
-                        <div className={`destination_statistik ${isVisible ? "show" : ""}`}>
-                            <div className="distance_Cont">
-                                <div className="distanceTitle text-preset-7">AVG. DISTANCE</div>
-                                <div className="distance text-preset-6">{selectedPlanet.distance}</div>
+                    </div>
+                    <div className="right-destination">
+                        <div className="explanation-destination">
+
+                            <PlanetNavBar onSelectPlanet={handleSelectPlanet} activePlanet={activePlanet} />
+
+                            <div className={`destination_text ${isVisible ? "show" : ""}`}>
+                                <div className="planet text-preset-2">{selectedPlanet.name.toUpperCase()}
+                                </div>
+                                <p className="description text-preset-9"> {selectedPlanet.description}</p>
+
                             </div>
-                            <div className="travelTime_Cont">
-                                <div className="travelTimeTitle text-preset-7">EST. TRAVEL TIME</div>
-                                <div className="travelTime text-preset-6">{selectedPlanet.travel}</div>
+                            <div className={`destination_statistik ${isVisible ? "show" : ""}`}>
+                                <div className="distance_Cont">
+                                    <div className="distanceTitle text-preset-7">AVG. DISTANCE</div>
+                                    <div className="distance text-preset-6">{selectedPlanet.distance}</div>
+                                </div>
+                                <div className="travelTime_Cont">
+                                    <div className="travelTimeTitle text-preset-7">EST. TRAVEL TIME</div>
+                                    <div className="travelTime text-preset-6">{selectedPlanet.travel}</div>
+                                </div>
                             </div>
                         </div>
-
                     </div>
+                </div>
 
-                </section>
-            </div>
+            </section>
+            {/* </div> */}
         </main>
     )
 }
